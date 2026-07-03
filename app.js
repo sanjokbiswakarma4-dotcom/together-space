@@ -1,5 +1,6 @@
 let timerInterval;
 
+
 function startTimer(minutes) {
   clearInterval(timerInterval);
 
@@ -16,7 +17,7 @@ function startTimer(minutes) {
 
     if (time < 0) {
       clearInterval(timerInterval);
-      display.innerText = "🧘 Done";
+      display.innerText = "🧘 Time’s up — breathe ✨";
     }
   }, 1000);
 }
