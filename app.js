@@ -24,25 +24,55 @@ function startTimer(minutes) {
 // 🎵 Songs
 function addSong() {
   const input = document.getElementById("songInput");
-  const songList = document.getElementById("songList");
+
+  let songs = JSON.parse(localStorage.getItem("songs")) || [];
 
   if (input.value.trim() !== "") {
-    const p = document.createElement("p");
-    p.innerText = "🎵 " + input.value;
-    songList.appendChild(p);
+    songs.push(input.value);
+    localStorage.setItem("songs", JSON.stringify(songs));
     input.value = "";
+    loadSongs();
   }
+}
+
+function loadSongs() {
+  const songList = document.getElementById("songList");
+  songList.innerHTML = "";
+
+  let songs = JSON.parse(localStorage.getItem("songs")) || [];
+
+  songs.forEach(song => {
+    const p = document.createElement("p");
+    p.innerText = "🎵 " + song;
+    songList.appendChild(p);
+  });
 }
 
 // 📸 Photos
 function addPhoto() {
-  const input = document.getElementById("photoInput");
-  const grid = document.getElementById("photoGrid");
+const input = document.getElementById("photoInput");
+
+  let photos = JSON.parse(localStorage.getItem("photos")) || [];
 
   if (input.value.trim() !== "") {
-    const img = document.createElement("img");
-    img.src = input.value;
-    grid.appendChild(img);
+    photos.push(input.value);
+    localStorage.setItem("photos", JSON.stringify(photos));
     input.value = "";
+    loadPhotos();
   }
 }
+
+function loadPhotos() {
+  const grid = document.getElementById("photoGrid");
+  grid.innerHTML = "";
+
+  let photos = JSON.parse(localStorage.getItem("photos")) || [];
+
+  photos.forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    grid.appendChild(img);
+  });
+}
+loadSongs();
+loadPhotos();
