@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Together Space 💛</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>💛 Together Space</h1>
+  <p>For you & me — calm, memories, and moments</p>
+
+  <section>
+    <h2>🧘 Meditation Timer</h2>
+    <button onclick="startTimer(5)">5 min</button>
+    <button onclick="startTimer(10)">10 min</button>
+    <button onclick="startTimer(15)">15 min</button>
+
+    <h3 id="timer">00:00</h3>
+  </section>
+
+  <section>
+    <h2>🎵 Songs</h2>
+    <input id="songInput" placeholder="Paste YouTube link or song name">
+    <button onclick="addSong()">Add Song</button>
+    <div id="songList"></div>
+  </section>
+
+  <section>
+    <h2>📸 Photos</h2>
+    <input id="photoInput" placeholder="Paste image URL">
+    <button onclick="addPhoto()">Add Photo</button>
+    <div id="photoGrid"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
